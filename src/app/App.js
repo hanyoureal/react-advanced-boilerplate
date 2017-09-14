@@ -1,5 +1,6 @@
 import React from 'react';
 import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom';
 import { IntlProvider } from 'react-intl';
 import MainContainer from 'modules/main/MainContainer';
 import 'antd/dist/antd.css';
@@ -19,7 +20,9 @@ export default function App() {
   return (
     <Provider store={store}>
       <IntlProvider locale={locale} messages={messages}>
-        <MainContainer />
+        <BrowserRouter>
+          <MainContainer />
+        </BrowserRouter>
       </IntlProvider>
     </Provider>
   );

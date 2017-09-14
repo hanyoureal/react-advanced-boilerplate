@@ -1,14 +1,20 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect, withRouter } from 'react-router-dom';
 import { object, func } from 'prop-types';
 import { connect } from 'react-redux';
-import { HomeContainer } from 'modules/home';
-import { LoginContainer } from 'modules/session';
-import { setLoggedUser } from 'modules/session/stores/sessionStore';
 import Cookies from 'js-cookie';
+import { ErrorContainer } from 'modules/error';
+import { LoginContainer } from 'modules/session';
+import { HomeContainer } from 'modules/home';
+import { setLoggedUser } from 'modules/session/stores/sessionStore';
+import { Navigation } from 'modules/navigation';
+import { Layout } from 'antd';
 import { getSession } from './selectors/mainSelectors';
 
+const { Header, Content, Footer } = Layout;
+
 const propTypes = {
+  history: object,
   session: object,
   dispatchSetLoggedUser: func,
 };
@@ -29,19 +35,37 @@ class MainContainer extends Component {
   render() {
     const {
       session,
+      history,
     } = this.props;
 
+    const location = history.location.pathname.split('/')[1];
+
     return (
-      <BrowserRouter>
-        <Switch>
-          {
-            session ?
-              <Route path="/" component={HomeContainer} />
-              :
-              <Route path="/" component={LoginContainer} />
-          }
-        </Switch>
-      </BrowserRouter>
+      <div>
+        {
+          !session ?
+            <LoginContainer />
+            :
+            <Layout style={{ minHeight: '100vh' }} className="ant-layout-has-sider">
+              <Navigation location={location} />
+              <Layout>
+                <Header style={{ background: '#ececec', padding: 0 }} />
+                <Content style={{ margin: '0 16px' }}>
+                  <ErrorContainer />
+                  <Switch>
+                    <Route exact path="/" render={() => <Redirect to="/orders" />} />
+                    <Route path="/orders" component={HomeContainer} />
+                    <Route path="/drivers" component={HomeContainer} />
+                    <Route path="/map" component={HomeContainer} />
+                  </Switch>
+                </Content>
+                <Footer style={{ textAlign: 'center' }}>
+                  Bliss Delivery ©2017
+                </Footer>
+              </Layout>
+            </Layout>
+        }
+      </div>
     );
   }
 }
@@ -57,4 +81,5 @@ const mapDispatchToProps = {
 MainContainer.propTypes = propTypes;
 MainContainer.defaultProps = defaultProps;
 
-export default connect(mapStateToProps, mapDispatchToProps)(MainContainer);
+// withRouter property enables router property watches directly on props
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(MainContainer));

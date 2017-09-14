@@ -11,6 +11,16 @@ export default defineMessages({
     description: 'Orders menu label',
     defaultMessage: 'Orders',
   },
+  drivers: {
+    id: 'Navigation.drivers',
+    description: 'Drivers menu label',
+    defaultMessage: 'Drivers',
+  },
+  map: {
+    id: 'Navigation.map',
+    description: 'Map menu label',
+    defaultMessage: 'Map',
+  },
   logout: {
     id: 'Navigation.logout',
     description: 'Log out button label',

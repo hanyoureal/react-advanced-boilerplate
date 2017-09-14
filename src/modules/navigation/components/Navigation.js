@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { func } from 'prop-types';
+import { Link } from 'react-router-dom';
+import { func, string } from 'prop-types';
 import { injectIntl, intlShape } from 'react-intl';
 import { Layout, Menu, Icon } from 'antd';
 import { logOut } from 'modules/session/stores/sessionStore';
@@ -10,6 +11,7 @@ import messages from '../messages';
 const { Sider } = Layout;
 const propTypes = {
   intl: intlShape.isRequired,
+  location: string,
   dispatchLogOut: func,
 };
 
@@ -25,7 +27,6 @@ class Navigation extends Component {
     this.logOut = this.logOut.bind(this);
 
     this.state = {
-      current: 'orders',
       collapsed: false,
     };
   }
@@ -49,6 +50,7 @@ class Navigation extends Component {
   render() {
     const {
       intl,
+      location,
     } = this.props;
 
     const {
@@ -69,11 +71,25 @@ class Navigation extends Component {
           mode="inline"
           theme="dark"
           onClick={this.handleClick}
-          selectedKeys={[this.state.current]}
+          selectedKeys={[location]}
         >
           <Menu.Item key="orders">
-            <Icon type="clock-circle-o" />
-            <span>{intl.formatMessage(messages.orders)}</span>
+            <Link to="/orders">
+              <Icon type="clock-circle-o" />
+              <span>{intl.formatMessage(messages.orders)}</span>
+            </Link>
+          </Menu.Item>
+          <Menu.Item key="drivers">
+            <Link to="/drivers">
+              <Icon type="clock-circle-o" />
+              <span>{intl.formatMessage(messages.drivers)}</span>
+            </Link>
+          </Menu.Item>
+          <Menu.Item key="map">
+            <Link to="/map">
+              <Icon type="clock-circle-o" />
+              <span>{intl.formatMessage(messages.map)}</span>
+            </Link>
           </Menu.Item>
           <Menu.Item key="logout">
             <Icon type="aliwangwang-o" />

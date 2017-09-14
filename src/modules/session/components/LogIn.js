@@ -44,7 +44,9 @@ function Home(props) {
 
   return (
     <div style={{ width: '100%', height: '100%' }}>
-      <Logo />
+      <Row type="flex" justify="center" align="middle" style={{ padding: '50px' }}>
+        <Logo />
+      </Row>
       <Row
         type="flex"
         justify="space-around"

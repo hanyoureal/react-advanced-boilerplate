@@ -4,6 +4,8 @@
   "World.hello": "Hello world!",
   "Navigation.home": "Home",
   "Navigation.orders": "Orders",
+  "Navigation.drivers": "Drivers",
+  "Navigation.map": "Map",
   "Navigation.logout": "Logout",
   "Login.username": "Username",
   "Login.password": "Password",

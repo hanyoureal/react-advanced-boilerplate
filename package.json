@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "npm run build",
-    "build": "webpack -d && cp src/index.html dist/index.html && webpack-dev-server --content-base src/ --inline --hot --port 3010 --open",
-    "build:prod": "webpack -p && cp src/index.html dist/index.html"
+    "build": "webpack -d && cp src/index.html dist/index.html && webpack-dev-server --content-base src/ --history-api-fallback --inline --hot --port 3010 --open",
+    "build:prod": "webpack -p && cp src/index.html dist/index.html --history-api-fallback"
   },
   "repository": {
     "type": "git",
@@ -22,6 +22,7 @@
     "react-dom": "^15.6.1",
     "react-intl": "^2.4.0",
     "react-redux": "^5.0.6",
+    "react-router": "^4.2.0",
     "react-router-dom": "^4.2.2",
     "redux": "^3.7.2",
     "redux-logger": "^3.0.6",
@@ -31,7 +32,6 @@
     "url-loader": "^0.5.9"
   },
   "devDependencies": {
-    "ajv": "^5.2.2",
     "babel-core": "^6.26.0",
     "babel-eslint": "^7.2.3",
     "babel-loader": "^7.1.2",
@@ -47,12 +47,7 @@
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-react": "^7.3.0",
-    "install": "^0.10.1",
-    "less": "^2.7.2",
-    "less-loader": "^4.0.5",
-    "less-vars-to-js": "^1.2.0",
     "node-sass": "^4.5.3",
-    "npm": "^5.4.1",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.18.2",
     "webpack": "^3.5.6",
