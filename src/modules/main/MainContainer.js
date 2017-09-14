@@ -4,11 +4,11 @@ import { object, func } from 'prop-types';
 import { connect } from 'react-redux';
 import Cookies from 'js-cookie';
 import { ErrorContainer } from 'modules/error';
-import { LoginContainer } from 'modules/session';
+import { LoginContainer, UserMenuContainer } from 'modules/session';
 import { HomeContainer } from 'modules/home';
 import { setLoggedUser } from 'modules/session/stores/sessionStore';
 import { Navigation } from 'modules/navigation';
-import { Layout } from 'antd';
+import { Layout, Row } from 'antd';
 import { getSession } from './selectors/mainSelectors';
 
 const { Header, Content, Footer } = Layout;
@@ -49,7 +49,11 @@ class MainContainer extends Component {
             <Layout style={{ minHeight: '100vh' }} className="ant-layout-has-sider">
               <Navigation location={location} />
               <Layout>
-                <Header style={{ background: '#ececec', padding: 0 }} />
+                <Header style={{ background: '#ececec', padding: 0 }}>
+                  <Row type="flex" justify="end">
+                    <UserMenuContainer />
+                  </Row>
+                </Header>
                 <Content style={{ margin: '0 16px' }}>
                   <ErrorContainer />
                   <Switch>

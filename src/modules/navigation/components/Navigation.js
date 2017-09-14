@@ -7,6 +7,7 @@ import { Layout, Menu, Icon } from 'antd';
 import { logOut } from 'modules/session/stores/sessionStore';
 import LogoImg from 'assets/images/Logo_s.png';
 import messages from '../messages';
+import { menuItems } from '../config';
 
 const { Sider } = Layout;
 const propTypes = {
@@ -23,18 +24,11 @@ class Navigation extends Component {
     super(props);
 
     this.onCollapse = this.onCollapse.bind(this);
-    this.handleClick = this.handleClick.bind(this);
     this.logOut = this.logOut.bind(this);
 
     this.state = {
       collapsed: false,
     };
-  }
-
-  handleClick({ key }) {
-    if (key === 'logout') {
-      this.logOut();
-    }
   }
 
   logOut() {
@@ -57,6 +51,10 @@ class Navigation extends Component {
       collapsed,
     } = this.state;
 
+    const menuLocations = menuItems.map(({ name }) => name);
+    const selectedLocation =
+      (menuLocations.indexOf(location) !== -1) ? [location] : [];
+
     return (
       <Sider
         className="header"
@@ -70,31 +68,18 @@ class Navigation extends Component {
         <Menu
           mode="inline"
           theme="dark"
-          onClick={this.handleClick}
-          selectedKeys={[location]}
+          selectedKeys={selectedLocation}
         >
-          <Menu.Item key="orders">
-            <Link to="/orders">
-              <Icon type="clock-circle-o" />
-              <span>{intl.formatMessage(messages.orders)}</span>
-            </Link>
-          </Menu.Item>
-          <Menu.Item key="drivers">
-            <Link to="/drivers">
-              <Icon type="clock-circle-o" />
-              <span>{intl.formatMessage(messages.drivers)}</span>
-            </Link>
-          </Menu.Item>
-          <Menu.Item key="map">
-            <Link to="/map">
-              <Icon type="clock-circle-o" />
-              <span>{intl.formatMessage(messages.map)}</span>
-            </Link>
-          </Menu.Item>
-          <Menu.Item key="logout">
-            <Icon type="aliwangwang-o" />
-            <span>{intl.formatMessage(messages.logout)}</span>
-          </Menu.Item>
+          {
+            menuItems.map(({ name, icon }) => (
+              <Menu.Item key={name}>
+                <Link to={`/${name}`}>
+                  <Icon type={icon} />
+                  <span>{intl.formatMessage(messages[name])}</span>
+                </Link>
+              </Menu.Item>
+            ))
+          }
         </Menu>
       </Sider>
     );

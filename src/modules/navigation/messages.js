@@ -21,9 +21,4 @@ export default defineMessages({
     description: 'Map menu label',
     defaultMessage: 'Map',
   },
-  logout: {
-    id: 'Navigation.logout',
-    description: 'Log out button label',
-    defaultMessage: 'Logout',
-  },
 });

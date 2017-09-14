@@ -1,3 +1,5 @@
+$black-color: #404040;
+
 body {
   background: #f5f5f5;
 }
@@ -13,4 +15,10 @@ body {
     height: 32px;
     margin-left: calc(50% - 16px);
   }
+}
+
+.user-menu {
+  margin: 0 16px;
+  font-size: 16px;
+  color: $black-color;
 }

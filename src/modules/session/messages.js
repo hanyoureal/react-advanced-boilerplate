@@ -31,4 +31,19 @@ export default defineMessages({
     description: 'Field is required error',
     defaultMessage: 'This is a required field',
   },
+  profile: {
+    id: 'Navigation.profile',
+    description: 'Profile label',
+    defaultMessage: 'Profile',
+  },
+  settings: {
+    id: 'Navigation.settings',
+    description: 'Settings label',
+    defaultMessage: 'Settings',
+  },
+  logout: {
+    id: 'Navigation.logout',
+    description: 'Log out button label',
+    defaultMessage: 'Logout',
+  },
 });

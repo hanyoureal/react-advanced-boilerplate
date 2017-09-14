@@ -1,11 +1,12 @@
 {
   "Error.default": "An error has occurred",
   "Error.requiredField": "This is a required field",
-  "World.hello": "Hello world!",
   "Navigation.home": "Home",
   "Navigation.orders": "Orders",
   "Navigation.drivers": "Drivers",
   "Navigation.map": "Map",
+  "Navigation.profile": "Profile",
+  "Navigation.settings": "Settings",
   "Navigation.logout": "Logout",
   "Login.username": "Username",
   "Login.password": "Password",
