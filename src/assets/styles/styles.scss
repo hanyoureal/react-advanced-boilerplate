@@ -1,0 +1,11 @@
+.logo {
+  height: 32px;
+  border-radius: 6px;
+  margin: 16px;
+  overflow: hidden;
+
+  img {
+    height: 32px;
+    margin-left: calc(50% - 16px);
+  }
+}

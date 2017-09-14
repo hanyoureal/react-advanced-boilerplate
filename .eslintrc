@@ -1,0 +1,41 @@
+{
+  "extends": "airbnb",
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "plugins": [
+    "babel"
+  ],
+  "rules": {
+    "new-cap": ["error", { "properties": false }],
+    "no-use-before-define": ["error", { "functions": false, "classes": true }],
+    "operator-assignment": ["error", "never"],
+    "arrow-parens": ["error", "always"],
+    "consistent-return": ["error", { "treatUndefinedAsUnspecified": false }],
+    "import/no-extraneous-dependencies": "off",
+    "import/no-unresolved": "off",
+    "import/extensions": "off",
+    "no-unused-vars": ["error", { "vars": "all", "args": "none" }],
+    "no-useless-escape": "off",
+    "no-underscore-dangle": "off",
+    "linebreak-style": "off",
+    "react/jsx-filename-extension": ["warn", { "extensions": [".js", ".jsx"] }],
+    "generator-star-spacing" : ["off"],
+    "react/require-default-props" : ["off"],
+    "react/no-array-index-key" : ["off"],
+    "no-multi-assign" : ["off"],
+    "no-empty" : ["off"],
+    "brace-style": ["error"],
+    "babel/generator-star-spacing": "warn",
+    "class-methods-use-this": ["off"],
+    "react/no-unused-prop-types": ["error", { "skipShapeProps": true }],
+    "react/sort-comp": ["off"],
+    "jsx-a11y/href-no-hash": "off",
+    "react/forbid-prop-types": "off"
+  }
+}

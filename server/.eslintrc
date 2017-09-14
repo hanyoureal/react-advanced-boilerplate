@@ -1,0 +1,19 @@
+{
+  "extends": "airbnb-base",
+  "env": {
+    "node": true
+  },
+  "rules": {
+    "new-cap": ["error", { "properties": false }],
+    "no-use-before-define": ["error", { "functions": false, "classes": true }],
+    "operator-assignment": ["error", "never"],
+    "arrow-parens": ["error", "always"],
+    "consistent-return": ["off"],
+    "import/no-extraneous-dependencies": ["error", {"devDependencies": true, "optionalDependencies": true, "peerDependencies": true}],
+    "no-unused-vars": ["error", { "vars": "all", "args": "none" }],
+    "no-useless-escape": 0,
+    "no-underscore-dangle": 0,
+    "linebreak-style": 0,
+    "max-len": ["error", { "code": 100, "ignoreComments": true }]
+  }
+}

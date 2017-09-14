@@ -1,0 +1,12 @@
+{
+  "Error.default": "A aparut o eroare",
+  "Error.requiredField": "Acest camp este obligatoriu",
+  "World.hello": "Salut lume!",
+  "Navigation.home": "Acasa",
+  "Navigation.orders": "Comenzi",
+  "Navigation.logout": "Delogare",
+  "Login.username": "Utilizator",
+  "Login.password": "Parola",
+  "Login.authentication": "Autentificare",
+  "Login.submit": "Logare"
+}
